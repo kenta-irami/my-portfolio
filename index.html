@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>イラケン | Portfolio</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- 独自デザイン用のカスタムCSS -->
+    <link rel="stylesheet" href="css/custom.css" />
+  </head>
+
+  <body>
+    <!-- ===== ヘッダー ===== -->
+    <header class="header">
+      <div class="container d-flex flex-wrap justify-content-center">
+        <!-- サイトロゴ -->
+        <a
+          href="/"
+          class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"
+        >
+          <span class="fs-4">My Portfolio</span>
+        </a>
+        <!-- ナビゲーションメニュー -->
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a href="#" class="nav-link active" aria-current="page">Home</a>
+          </li>
+          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="#works" class="nav-link">Works</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- ===== メインコンテンツ ===== -->
+    <main>
+      <!-- === 自己紹介 (About) === -->
+      <!-- "py-5" は上下に大きな余白(padding)を設けるBootstrapのクラスです -->
+      <section id="about" class="py-5 text-center container">
+        <div class="row py-lg-5">
+          <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">イラケン</h1>
+            <p class="lead text-muted">デザイン・Web制作</p>
+            <p class="lead">
+              質の高い丁寧な仕事を提供します。よろしくお願いいたします！
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- === スキル (Skills) === -->
+      <section id="skills" class="py-5 bg-light">
+        <div class="container">
+          <h2 class="text-center section-title">Skills</h2>
+          <div class="text-center">
+            <span class="badge bg-primary rounded-pill fs-6 p-2 m-1 skill-badge"
+              >HTML</span
+            >
+            <span class="badge bg-primary rounded-pill fs-6 p-2 m-1 skill-badge"
+              >CSS</span
+            >
+            <span class="badge bg-primary rounded-pill fs-6 p-2 m-1 skill-badge"
+              >JavaScript</span
+            >
+            <span class="badge bg-primary rounded-pill fs-6 p-2 m-1 skill-badge"
+              >React</span
+            >
+            <span class="badge bg-primary rounded-pill fs-6 p-2 m-1 skill-badge"
+              >LINE構築</span
+            >
+            <span class="badge bg-primary rounded-pill fs-6 p-2 m-1 skill-badge"
+              >AI駆動開発</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- === 作品 (Works) === -->
+      <section id="works" class="py-5">
+        <div class="container">
+          <h2 class="text-center section-title">Works</h2>
+          <div class="row">
+            <!-- 作品1 -->
+            <div class="col-md-6 mb-4">
+              <div class="card">
+                <!-- Tip: "images"フォルダを作って、そこに"work1.jpg"のような画像を入れると表示できます -->
+                <img
+                  src="https://via.placeholder.com/400x250"
+                  class="card-img-top"
+                  alt="作品1の画像"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">【作品名 1】</h5>
+                  <p class="card-text">
+                    【ここに作品の簡単な説明を記述します。】
+                  </p>
+                  <a href="#" class="btn btn-primary">詳細を見る</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- 作品2 -->
+            <div class="col-md-6 mb-4">
+              <div class="card">
+                <img
+                  src="https://via.placeholder.com/400x250"
+                  class="card-img-top"
+                  alt="作品2の画像"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">【作品名 2】</h5>
+                  <p class="card-text">
+                    【HTMLとCSSで作成したポートフォリオサイトです。】
+                  </p>
+                  <a href="#" class="btn btn-primary">詳細を見る</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== フッター ===== -->
+    <footer class="footer">
+      <div class="container text-center">
+        <span class="text-muted">© 2025 iraken</span>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

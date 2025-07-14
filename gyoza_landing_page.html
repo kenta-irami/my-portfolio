@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>餃子専門店 足立餃子房 - 地元食材にこだわる本格餃子</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo,
+          sans-serif;
+        line-height: 1.6;
+        color: #333;
+        overflow-x: hidden;
+      }
+
+      /* Header */
+      .header {
+        background: linear-gradient(135deg, #ff6b35 0%, #ff8e53 100%);
+        color: white;
+        padding: 1rem 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+        text-decoration: none;
+        color: white;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: opacity 0.3s;
+      }
+
+      .nav-links a:hover {
+        opacity: 0.8;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(
+          135deg,
+          #ff6b35 0%,
+          #ff8e53 50%,
+          #ffa726 100%
+        );
+        color: white;
+        padding: 8rem 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.1) 0%,
+          transparent 70%
+        );
+        animation: rotate 20s linear infinite;
+      }
+
+      .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        animation: fadeInUp 1s ease-out;
+      }
+
+      .hero-subtitle {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+        animation: fadeInUp 1s ease-out 0.3s both;
+      }
+
+      .opening-banner {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        margin-bottom: 2rem;
+        backdrop-filter: blur(10px);
+        animation: fadeInUp 1s ease-out 0.6s both;
+      }
+
+      .cta-button {
+        background: white;
+        color: #ff6b35;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1rem;
+        transition: all 0.3s;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        animation: fadeInUp 1s ease-out 0.9s both;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      /* About Section - PREP法適用 */
+      .about {
+        padding: 6rem 0;
+        background: #f8f9fa;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        color: #333;
+        position: relative;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(135deg, #ff6b35, #ff8e53);
+      }
+
+      .prep-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 3rem;
+        margin-top: 4rem;
+      }
+
+      .prep-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+
+      .prep-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .prep-card h3 {
+        color: #ff6b35;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .prep-card p {
+        color: #666;
+        line-height: 1.8;
+      }
+
+      /* Menu Section */
+      .menu {
+        padding: 6rem 0;
+        background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+      }
+
+      .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-top: 4rem;
+      }
+
+      .menu-item {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+
+      .menu-item:hover {
+        transform: translateY(-5px);
+      }
+
+      .menu-image {
+        height: 200px;
+        background: linear-gradient(45deg, #ff6b35, #ff8e53);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 3rem;
+      }
+
+      .menu-content {
+        padding: 1.5rem;
+      }
+
+      .menu-content h3 {
+        color: #ff6b35;
+        margin-bottom: 0.5rem;
+      }
+
+      .menu-content p {
+        color: #666;
+        margin-bottom: 1rem;
+      }
+
+      .price {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #ff6b35;
+      }
+
+      /* Info Section */
+      .info {
+        padding: 6rem 0;
+        background: #ff6b35;
+        color: white;
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+        margin-top: 4rem;
+      }
+
+      .info-item {
+        text-align: center;
+        padding: 2rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+      }
+
+      .info-item h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+      }
+
+      .info-item p {
+        opacity: 0.9;
+      }
+
+      /* Vision Section */
+      .vision {
+        padding: 6rem 0;
+        background: #f8f9fa;
+      }
+
+      .vision-content {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .vision-content p {
+        font-size: 1.2rem;
+        color: #666;
+        line-height: 1.8;
+        margin-bottom: 2rem;
+      }
+
+      /* Footer */
+      .footer {
+        background: #333;
+        color: white;
+        padding: 3rem 0;
+        text-align: center;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .footer-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .footer-section h4 {
+        color: #ff6b35;
+        margin-bottom: 1rem;
+      }
+
+      .footer-section p {
+        opacity: 0.8;
+      }
+
+      /* Animations */
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Mobile Responsive */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.1rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .prep-content {
+          grid-template-columns: 1fr;
+        }
+
+        .menu-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .info-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero {
+          padding: 4rem 0;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .nav-container {
+          padding: 0 1rem;
+        }
+
+        .container {
+          padding: 0 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sample Notice -->
+    <div
+      style="
+        background: #333;
+        color: white;
+        text-align: center;
+        padding: 0.5rem;
+        font-size: 0.9rem;
+        border-bottom: 1px solid #555;
+      "
+    >
+      ⚠️ このページはポートフォリオ用のサンプルです
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+      <nav class="nav-container">
+        <a href="#" class="logo">足立餃子房</a>
+        <ul class="nav-links">
+          <li><a href="#about">当店について</a></li>
+          <li><a href="#menu">メニュー</a></li>
+          <li><a href="#info">店舗情報</a></li>
+          <li><a href="#vision">こだわり</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>足立餃子房</h1>
+        <p class="hero-subtitle">地元食材にこだわる本格餃子専門店</p>
+        <div class="opening-banner">
+          <strong>🎉 2025年4月 グランドオープン予定！</strong>
+        </div>
+        <a href="#menu" class="cta-button">メニューを見る</a>
+      </div>
+    </section>
+
+    <!-- About Section - PREP法適用 -->
+    <section class="about" id="about">
+      <div class="container">
+        <h2 class="section-title">当店の特徴</h2>
+        <div class="prep-content">
+          <div class="prep-card">
+            <h3>なぜ足立餃子房なのか</h3>
+            <p>
+              足立餃子房は、地元足立区の新鮮な食材を使用した本格餃子を提供する専門店です。観光客から地元の方まで、すべての餃子愛好家にとって特別な体験をお届けします。
+            </p>
+          </div>
+          <div class="prep-card">
+            <h3>選ばれる3つの理由</h3>
+            <p>
+              ①地元足立区産の新鮮野菜を使用した餃子
+              ②熟練の職人が一つ一つ手作りする本格的な味
+              ③観光客にも地元民にも愛される親しみやすい雰囲気
+            </p>
+          </div>
+          <div class="prep-card">
+            <h3>こんな方におすすめ</h3>
+            <p>
+              東京観光で本格的な餃子を味わいたい方、足立区で美味しい餃子をお探しの地元の方、餃子好きで新しいお店を開拓したい方に最適です。
+            </p>
+          </div>
+          <div class="prep-card">
+            <h3>足立餃子房でお待ちしています</h3>
+            <p>
+              2025年4月のオープンに向けて準備中です。地元愛溢れる美味しい餃子で、皆様をお迎えいたします。ぜひ一度ご来店ください。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu" id="menu">
+      <div class="container">
+        <h2 class="section-title">メニュー</h2>
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="menu-image">🥟</div>
+            <div class="menu-content">
+              <h3>焼き餃子</h3>
+              <p>
+                地元足立区産の新鮮野菜をたっぷり使用した自慢の餃子。外はパリッと、中はジューシー。
+              </p>
+              <div class="price">1人前（6個）: ¥480</div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-image">🥢</div>
+            <div class="menu-content">
+              <h3>水餃子</h3>
+              <p>
+                もちもちの皮と旨味たっぷりの餡が絶品。あっさりとした味わいでヘルシー。
+              </p>
+              <div class="price">1人前（6個）: ¥450</div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-image">🍚</div>
+            <div class="menu-content">
+              <h3>特製チャーハン</h3>
+              <p>餃子との相性抜群！地元産の卵を使用したパラパラチャーハン。</p>
+              <div class="price">1人前: ¥680</div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-image">🍺</div>
+            <div class="menu-content">
+              <h3>ドリンク各種</h3>
+              <p>
+                ビール、ソフトドリンク、お茶など餃子にぴったりのドリンクをご用意。
+              </p>
+              <div class="price">¥280〜¥480</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="info" id="info">
+      <div class="container">
+        <h2 class="section-title">店舗情報</h2>
+        <div class="info-grid">
+          <div class="info-item">
+            <h3>📍 所在地</h3>
+            <p>東京都足立区<br />（詳細住所は近日公開）</p>
+          </div>
+          <div class="info-item">
+            <h3>⏰ 営業時間</h3>
+            <p>平日: 10:00〜19:00<br />土日祝: 定休日</p>
+          </div>
+          <div class="info-item">
+            <h3>🚇 アクセス</h3>
+            <p>最寄り駅から徒歩圏内<br />観光客の方にも便利</p>
+          </div>
+          <div class="info-item">
+            <h3>📞 お問い合わせ</h3>
+            <p>オープン前のため<br />詳細は近日公開</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="vision" id="vision">
+      <div class="container">
+        <h2 class="section-title">私たちのこだわり</h2>
+        <div class="vision-content">
+          <p>
+            足立餃子房は、地元足立区の豊かな食材を活かし、一つ一つ丁寧に手作りする餃子専門店です。
+          </p>
+          <p>
+            地域に根ざした食材選びから、熟練の技術まで、美味しい餃子への情熱を注ぎ込んでいます。
+          </p>
+          <p>
+            観光で訪れる方々にも、地元で愛される方々にも、心から満足していただける餃子をお届けします。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-info">
+          <div class="footer-section">
+            <h4>足立餃子房</h4>
+            <p>地元食材にこだわる餃子専門店</p>
+          </div>
+          <div class="footer-section">
+            <h4>営業時間</h4>
+            <p>平日 10:00-19:00<br />土日祝 定休日</p>
+          </div>
+          <div class="footer-section">
+            <h4>オープン予定</h4>
+            <p>2025年4月</p>
+          </div>
+        </div>
+        <p>&copy; 2025 足立餃子房. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // スムーズスクロール
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // スクロールアニメーション
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      // アニメーション対象要素を監視
+      document
+        .querySelectorAll(".prep-card, .menu-item, .info-item")
+        .forEach((el) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(20px)";
+          el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+          observer.observe(el);
+        });
+    </script>
+  </body>
+</html>

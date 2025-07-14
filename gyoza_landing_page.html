@@ -4,33 +4,56 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex,nofollow" />
-    <title>餃子専門店 足立餃子房 - 地元食材にこだわる本格餃子</title>
+    <title>【公式】足立餃子房 - 肉汁したたる、本格手包み餃子専門店</title>
+    <!-- (headタグの中身は変更なし) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=Shippori+Mincho:wght@700&display=swap"
+      rel="stylesheet"
+    />
     <style>
+      /* (styleタグの中身は変更なし) */
+      :root {
+        --primary-color: #ff6b35;
+        --secondary-color: #ff8e53;
+        --dark-accent-color: #5a3a2e;
+        --text-color: #333;
+        --light-bg-color: #fcfaf8;
+      }
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
-
       body {
-        font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo,
+        font-family: "M PLUS Rounded 1c", "Hiragino Kaku Gothic ProN", Meiryo,
           sans-serif;
-        line-height: 1.6;
-        color: #333;
+        line-height: 1.8;
+        color: var(--text-color);
+        background-color: #fff;
         overflow-x: hidden;
+        word-break: auto-phrase;
       }
-
-      /* Header */
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Shippori Mincho", serif;
+        text-wrap: balance;
+      }
+      p {
+        text-wrap: pretty;
+      }
       .header {
-        background: linear-gradient(135deg, #ff6b35 0%, #ff8e53 100%);
-        color: white;
+        background: white;
+        color: var(--text-color);
         padding: 1rem 0;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         position: sticky;
         top: 0;
-        z-index: 100;
+        z-index: 1000;
       }
-
       .nav-container {
         max-width: 1200px;
         margin: 0 auto;
@@ -39,61 +62,78 @@
         align-items: center;
         padding: 0 2rem;
       }
-
       .logo {
         font-size: 1.8rem;
-        font-weight: bold;
+        font-weight: 700;
         text-decoration: none;
-        color: white;
+        color: var(--dark-accent-color);
+        font-family: "Shippori Mincho", serif;
       }
-
       .nav-links {
         display: flex;
         list-style: none;
-        gap: 2rem;
+        gap: 2.5rem;
       }
-
       .nav-links a {
-        color: white;
+        color: var(--text-color);
         text-decoration: none;
-        font-weight: 500;
-        transition: opacity 0.3s;
+        font-weight: 700;
+        position: relative;
+        transition: color 0.3s;
       }
-
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: var(--primary-color);
+        transition: width 0.3s ease;
+      }
       .nav-links a:hover {
-        opacity: 0.8;
+        color: var(--primary-color);
       }
-
-      /* Hero Section */
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+      .hamburger {
+        display: none;
+        cursor: pointer;
+        z-index: 1001;
+      }
+      .hamburger .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        background-color: var(--dark-accent-color);
+        transition: all 0.3s ease-in-out;
+      }
       .hero {
         background: linear-gradient(
-          135deg,
-          #ff6b35 0%,
-          #ff8e53 50%,
-          #ffa726 100%
-        );
-        color: white;
+            135deg,
+            rgba(255, 107, 53, 0.1) 0%,
+            rgba(255, 167, 38, 0.1) 100%
+          ),
+          url(https://images.unsplash.com/photo-1534422298391-de13c83acb17?q=80&w=2940&auto=format&fit=crop)
+            center center/cover no-repeat;
+        background-attachment: fixed;
         padding: 8rem 0;
         text-align: center;
         position: relative;
-        overflow: hidden;
       }
-
-      .hero::before {
+      .hero::after {
         content: "";
         position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(
-          circle,
-          rgba(255, 255, 255, 0.1) 0%,
-          transparent 70%
-        );
-        animation: rotate 20s linear infinite;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(3px);
       }
-
       .hero-content {
         max-width: 800px;
         margin: 0 auto;
@@ -101,34 +141,34 @@
         position: relative;
         z-index: 1;
       }
-
       .hero h1 {
-        font-size: 3.5rem;
+        font-size: clamp(2.5rem, 8vw, 4rem);
         margin-bottom: 1rem;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        color: var(--dark-accent-color);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         animation: fadeInUp 1s ease-out;
+        line-height: 1.3;
       }
-
       .hero-subtitle {
-        font-size: 1.3rem;
+        font-size: clamp(1.1rem, 3vw, 1.5rem);
         margin-bottom: 2rem;
-        opacity: 0.9;
+        font-weight: 700;
         animation: fadeInUp 1s ease-out 0.3s both;
       }
-
       .opening-banner {
-        background: rgba(255, 255, 255, 0.2);
-        padding: 1rem 2rem;
+        background: var(--primary-color);
+        color: white;
+        padding: 0.8rem 2rem;
         border-radius: 50px;
-        margin-bottom: 2rem;
-        backdrop-filter: blur(10px);
+        margin-bottom: 2.5rem;
+        display: inline-block;
+        box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
         animation: fadeInUp 1s ease-out 0.6s both;
       }
-
       .cta-button {
-        background: white;
-        color: #ff6b35;
-        padding: 1rem 2rem;
+        background: var(--dark-accent-color);
+        color: white;
+        padding: 1rem 2.5rem;
         border-radius: 50px;
         text-decoration: none;
         font-weight: bold;
@@ -137,273 +177,279 @@
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         animation: fadeInUp 1s ease-out 0.9s both;
       }
-
       .cta-button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        transform: translateY(-3px);
+        background: var(--primary-color);
+        box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
       }
-
-      /* About Section - PREP法適用 */
       .about {
         padding: 6rem 0;
-        background: #f8f9fa;
+        background: var(--light-bg-color);
       }
-
       .container {
-        max-width: 1200px;
+        max-width: 1100px;
         margin: 0 auto;
         padding: 0 2rem;
       }
-
       .section-title {
         text-align: center;
-        font-size: 2.5rem;
-        margin-bottom: 3rem;
-        color: #333;
+        font-size: clamp(2.2rem, 6vw, 2.8rem);
+        margin-bottom: 4rem;
+        color: var(--dark-accent-color);
         position: relative;
       }
-
       .section-title::after {
         content: "";
         position: absolute;
-        bottom: -10px;
+        bottom: -15px;
         left: 50%;
         transform: translateX(-50%);
         width: 80px;
-        height: 3px;
-        background: linear-gradient(135deg, #ff6b35, #ff8e53);
+        height: 4px;
+        background: var(--primary-color);
+        border-radius: 2px;
       }
-
       .prep-content {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 3rem;
-        margin-top: 4rem;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
       }
-
       .prep-card {
         background: white;
-        padding: 2rem;
+        padding: 2.5rem 2rem;
         border-radius: 15px;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s;
+        border: 1px solid #eee;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s, box-shadow 0.3s;
       }
-
       .prep-card:hover {
         transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       }
-
       .prep-card h3 {
-        color: #ff6b35;
+        color: var(--primary-color);
         font-size: 1.5rem;
         margin-bottom: 1rem;
+        line-height: 1.4;
       }
-
       .prep-card p {
-        color: #666;
-        line-height: 1.8;
+        color: #555;
       }
-
-      /* Menu Section */
       .menu {
         padding: 6rem 0;
-        background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
       }
-
       .menu-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2.5rem;
         margin-top: 4rem;
       }
-
       .menu-item {
         background: white;
         border-radius: 15px;
         overflow: hidden;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s;
-      }
-
-      .menu-item:hover {
-        transform: translateY(-5px);
-      }
-
-      .menu-image {
-        height: 200px;
-        background: linear-gradient(45deg, #ff6b35, #ff8e53);
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
+        transition: transform 0.3s, box-shadow 0.3s;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 3rem;
+        flex-direction: column;
       }
-
+      .menu-item:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+      }
+      .menu-image img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+      .menu-item:hover .menu-image img {
+        transform: scale(1.05);
+      }
       .menu-content {
         padding: 1.5rem;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
       }
-
       .menu-content h3 {
-        color: #ff6b35;
+        color: var(--dark-accent-color);
+        font-size: 1.4rem;
         margin-bottom: 0.5rem;
       }
-
       .menu-content p {
         color: #666;
         margin-bottom: 1rem;
+        flex-grow: 1;
       }
-
       .price {
         font-size: 1.2rem;
         font-weight: bold;
-        color: #ff6b35;
+        color: var(--primary-color);
+        text-align: right;
+        margin-top: auto;
       }
-
-      /* Info Section */
       .info {
         padding: 6rem 0;
-        background: #ff6b35;
+        background: var(--dark-accent-color);
         color: white;
       }
-
+      .info .section-title {
+        color: white;
+      }
+      .info .section-title::after {
+        background: white;
+      }
       .info-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 3rem;
+        gap: 2rem;
         margin-top: 4rem;
       }
-
       .info-item {
         text-align: center;
         padding: 2rem;
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.05);
         border-radius: 15px;
-        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
       }
-
+      .info-item-icon {
+        font-size: 2.5rem;
+        color: var(--secondary-color);
+        margin-bottom: 1rem;
+      }
       .info-item h3 {
         font-size: 1.3rem;
         margin-bottom: 1rem;
+        color: white;
       }
-
       .info-item p {
         opacity: 0.9;
+        font-size: 1rem;
       }
-
-      /* Vision Section */
+      .info-item a {
+        color: var(--secondary-color);
+        text-decoration: underline;
+      }
       .vision {
         padding: 6rem 0;
-        background: #f8f9fa;
+        background: var(--light-bg-color);
       }
-
       .vision-content {
         text-align: center;
         max-width: 800px;
         margin: 0 auto;
       }
-
       .vision-content p {
         font-size: 1.2rem;
-        color: #666;
-        line-height: 1.8;
+        color: #555;
+        line-height: 2;
         margin-bottom: 2rem;
       }
-
-      /* Footer */
       .footer {
-        background: #333;
-        color: white;
-        padding: 3rem 0;
+        background: #2b2b2b;
+        color: #ccc;
+        padding: 4rem 0 2rem;
         text-align: center;
       }
-
       .footer-content {
-        max-width: 1200px;
+        max-width: 1100px;
         margin: 0 auto;
         padding: 0 2rem;
       }
-
-      .footer-info {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 2rem;
-        margin-bottom: 2rem;
-      }
-
-      .footer-section h4 {
-        color: #ff6b35;
+      .footer-logo {
+        font-size: 2rem;
+        color: white;
+        font-family: "Shippori Mincho", serif;
         margin-bottom: 1rem;
       }
-
-      .footer-section p {
-        opacity: 0.8;
+      .footer p {
+        margin-bottom: 2rem;
+        font-size: 0.9rem;
       }
-
-      /* Animations */
-      @keyframes rotate {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
+      .social-links {
+        margin-bottom: 2.5rem;
       }
-
+      .social-links a {
+        color: white;
+        margin: 0 1rem;
+        font-size: 1.5rem;
+        transition: color 0.3s;
+      }
+      .social-links a:hover {
+        color: var(--primary-color);
+      }
+      .copyright {
+        font-size: 0.8rem;
+        opacity: 0.7;
+        padding-top: 2rem;
+        border-top: 1px solid #444;
+      }
       @keyframes fadeInUp {
-        0% {
+        from {
           opacity: 0;
           transform: translateY(30px);
         }
-        100% {
+        to {
           opacity: 1;
           transform: translateY(0);
         }
       }
-
-      /* Mobile Responsive */
       @media (max-width: 768px) {
         .nav-links {
-          display: none;
+          position: fixed;
+          left: -100%;
+          top: 0;
+          flex-direction: column;
+          background-color: white;
+          width: 100%;
+          height: 100vh;
+          text-align: center;
+          transition: 0.3s;
+          gap: 0;
+          padding-top: 5rem;
         }
-
-        .hero h1 {
-          font-size: 2.5rem;
+        .nav-links.active {
+          left: 0;
         }
-
-        .hero-subtitle {
-          font-size: 1.1rem;
+        .nav-links li {
+          padding: 1.5rem 0;
+          border-bottom: 1px solid #f0f0f0;
         }
-
-        .section-title {
-          font-size: 2rem;
+        .nav-links li:first-child {
+          border-top: 1px solid #f0f0f0;
         }
-
-        .prep-content {
-          grid-template-columns: 1fr;
+        .nav-links a {
+          font-size: 1.2rem;
+          color: var(--dark-accent-color);
         }
-
-        .menu-grid {
-          grid-template-columns: 1fr;
+        .nav-links a:hover,
+        .nav-links a:hover::after {
+          color: var(--primary-color);
+          width: auto;
         }
-
-        .info-grid {
-          grid-template-columns: 1fr;
+        .hamburger {
+          display: block;
+        }
+        .hamburger.active .bar:nth-child(2) {
+          opacity: 0;
+        }
+        .hamburger.active .bar:nth-child(1) {
+          transform: translateY(8px) rotate(45deg);
+        }
+        .hamburger.active .bar:nth-child(3) {
+          transform: translateY(-8px) rotate(-45deg);
+        }
+        .hero {
+          padding: 6rem 0;
+          background-attachment: scroll;
         }
       }
-
       @media (max-width: 480px) {
         .hero {
-          padding: 4rem 0;
+          padding: 5rem 0;
         }
-
-        .hero h1 {
-          font-size: 2rem;
-        }
-
-        .nav-container {
-          padding: 0 1rem;
-        }
-
+        .nav-container,
         .container {
           padding: 0 1rem;
         }
@@ -419,66 +465,89 @@
         text-align: center;
         padding: 0.5rem;
         font-size: 0.9rem;
-        border-bottom: 1px solid #555;
       "
     >
-      ⚠️ このページはポートフォリオ用のサンプルです
+      ⚠️ このページはサンプルです
     </div>
 
-    <!-- Header -->
+    <!-- Header (★ナビゲーションの順序を変更) -->
     <header class="header">
       <nav class="nav-container">
         <a href="#" class="logo">足立餃子房</a>
         <ul class="nav-links">
-          <li><a href="#about">当店について</a></li>
-          <li><a href="#menu">メニュー</a></li>
-          <li><a href="#info">店舗情報</a></li>
           <li><a href="#vision">こだわり</a></li>
+          <li><a href="#about">私たちの想い</a></li>
+          <li><a href="#menu">お品書き</a></li>
+          <li><a href="#info">店舗情報</a></li>
         </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
       </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
-        <h1>足立餃子房</h1>
-        <p class="hero-subtitle">地元食材にこだわる本格餃子専門店</p>
+        <h1>肉汁、したたる。皮は、もっちり。</h1>
+        <p class="hero-subtitle">東京・足立の恵みを包んだ、本格手作り餃子</p>
         <div class="opening-banner">
           <strong>🎉 2025年4月 グランドオープン予定！</strong>
         </div>
-        <a href="#menu" class="cta-button">メニューを見る</a>
+        <a href="#menu" class="cta-button">お品書きを見る</a>
       </div>
     </section>
 
-    <!-- About Section - PREP法適用 -->
+    <!-- Vision Section (★ここに移動) -->
+    <section class="vision" id="vision">
+      <div class="container">
+        <h2 class="section-title">私たちのこだわり</h2>
+        <div class="vision-content">
+          <p>
+            <strong>一、皮。</strong
+            >気温や湿度に合わせ水分量を調整し、毎日手ごね。もっちり感と歯切れの良さを両立させました。
+          </p>
+          <p>
+            <strong>二、餡。</strong
+            >主役は足立区産の朝採れ小松菜。その風味を最大限に活かすため、国産豚肉との黄金比率を追求しました。
+          </p>
+          <p>
+            <strong>三、手包み。</strong
+            >餡をたっぷりと詰め込みながら、焼けばパリッと、茹でればつるりとした食感を生み出す。熟練の技が光ります。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
     <section class="about" id="about">
       <div class="container">
-        <h2 class="section-title">当店の特徴</h2>
+        <h2 class="section-title">私たちの想い</h2>
         <div class="prep-content">
           <div class="prep-card">
-            <h3>なぜ足立餃子房なのか</h3>
+            <h3>私たちの餃子は、足立への愛でできています。</h3>
             <p>
-              足立餃子房は、地元足立区の新鮮な食材を使用した本格餃子を提供する専門店です。観光客から地元の方まで、すべての餃子愛好家にとって特別な体験をお届けします。
+              足立餃子房は、ただの餃子屋ではありません。この街の素晴らしい食材と人々の温かさを、一皿の餃子に込めて届ける、地域に根ざした餃子専門店です。
             </p>
           </div>
           <div class="prep-card">
-            <h3>選ばれる3つの理由</h3>
+            <h3>なぜ足立区なのか？</h3>
             <p>
-              ①地元足立区産の新鮮野菜を使用した餃子
-              ②熟練の職人が一つ一つ手作りする本格的な味
-              ③観光客にも地元民にも愛される親しみやすい雰囲気
+              餃子の餡に欠かせない「小松菜」。実は足立区はその一大産地です。この瑞々しく新鮮な地元の宝を最高の形で味わってほしい、その想いが私たちの原点です。
             </p>
           </div>
           <div class="prep-card">
-            <h3>こんな方におすすめ</h3>
+            <h3>毎朝採れたての味を、手包みで。</h3>
             <p>
-              東京観光で本格的な餃子を味わいたい方、足立区で美味しい餃子をお探しの地元の方、餃子好きで新しいお店を開拓したい方に最適です。
+              契約農家から毎朝届く小松菜と、厳選した国産豚肉を使用。皮の厚さ、餡の黄金比、包み方に至るまで、熟練の職人が一つひとつ心を込めて手作りしています。
             </p>
           </div>
           <div class="prep-card">
-            <h3>足立餃子房でお待ちしています</h3>
+            <h3>餃子で、街を元気に。</h3>
             <p>
-              2025年4月のオープンに向けて準備中です。地元愛溢れる美味しい餃子で、皆様をお迎えいたします。ぜひ一度ご来店ください。
+              私たちの餃子が、地元の方の食卓を彩り、この街を訪れる人々の思い出に残る味となることを願っています。皆様のご来店を心よりお待ちしております。
             </p>
           </div>
         </div>
@@ -488,44 +557,42 @@
     <!-- Menu Section -->
     <section class="menu" id="menu">
       <div class="container">
-        <h2 class="section-title">メニュー</h2>
+        <h2 class="section-title">お品書き</h2>
         <div class="menu-grid">
           <div class="menu-item">
-            <div class="menu-image">🥟</div>
+            <div class="menu-image">
+              <img src="images/yaki-gyoza.jpg" alt="名物の焼き餃子" />
+            </div>
             <div class="menu-content">
-              <h3>焼き餃子</h3>
+              <h3>名物 焼き餃子</h3>
               <p>
-                地元足立区産の新鮮野菜をたっぷり使用した自慢の餃子。外はパリッと、中はジューシー。
+                噛んだ瞬間、旨味あふれる肉汁がジュワッ。足立区産小松菜のシャキシャキ感と、パリッと焼かれた皮の香ばしさがたまりません。
               </p>
-              <div class="price">1人前（6個）: ¥480</div>
+              <div class="price">一皿（6個）: ¥480</div>
             </div>
           </div>
           <div class="menu-item">
-            <div class="menu-image">🥢</div>
+            <div class="menu-image">
+              <img src="images/sui-gyoza.jpg" alt="特製の水餃子" />
+            </div>
             <div class="menu-content">
-              <h3>水餃子</h3>
+              <h3>特製 水餃子</h3>
               <p>
-                もちもちの皮と旨味たっぷりの餡が絶品。あっさりとした味わいでヘルシー。
+                厚めにもっちりと仕上げた皮が、餡の旨みを優しく包み込みます。特製の生姜だれで、さっぱりとお召し上がりください。
               </p>
-              <div class="price">1人前（6個）: ¥450</div>
+              <div class="price">一皿（6個）: ¥450</div>
             </div>
           </div>
           <div class="menu-item">
-            <div class="menu-image">🍚</div>
-            <div class="menu-content">
-              <h3>特製チャーハン</h3>
-              <p>餃子との相性抜群！地元産の卵を使用したパラパラチャーハン。</p>
-              <div class="price">1人前: ¥680</div>
+            <div class="menu-image">
+              <img src="images/chahan.jpg" alt="黄金チャーハン" />
             </div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-image">🍺</div>
             <div class="menu-content">
-              <h3>ドリンク各種</h3>
+              <h3>黄金チャーハン</h3>
               <p>
-                ビール、ソフトドリンク、お茶など餃子にぴったりのドリンクをご用意。
+                餃子のお供に最強の一品。強火で一気に仕上げることで、お米一粒一粒が卵でコーティングされた、パラパラの食感を実現しました。
               </p>
-              <div class="price">¥280〜¥480</div>
+              <div class="price">並盛: ¥680</div>
             </div>
           </div>
         </div>
@@ -538,39 +605,25 @@
         <h2 class="section-title">店舗情報</h2>
         <div class="info-grid">
           <div class="info-item">
-            <h3>📍 所在地</h3>
-            <p>東京都足立区<br />（詳細住所は近日公開）</p>
+            <div class="info-item-icon">📍</div>
+            <h3>所在地</h3>
+            <p>東京都足立区千住XXXX<br />（詳細はオープン前に公開）</p>
           </div>
           <div class="info-item">
-            <h3>⏰ 営業時間</h3>
-            <p>平日: 10:00〜19:00<br />土日祝: 定休日</p>
+            <div class="info-item-icon">⏰</div>
+            <h3>営業時間</h3>
+            <p>平日: 11:30〜21:00<br />土日祝: 定休日</p>
           </div>
           <div class="info-item">
-            <h3>🚇 アクセス</h3>
-            <p>最寄り駅から徒歩圏内<br />観光客の方にも便利</p>
+            <div class="info-item-icon">🚇</div>
+            <h3>アクセス</h3>
+            <p>JR・東京メトロ 北千住駅<br />西口より徒歩5分</p>
           </div>
           <div class="info-item">
-            <h3>📞 お問い合わせ</h3>
-            <p>オープン前のため<br />詳細は近日公開</p>
+            <div class="info-item-icon">📢</div>
+            <h3>最新情報</h3>
+            <p>オープンまでの進捗は<br />公式SNSで発信中！</p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Vision Section -->
-    <section class="vision" id="vision">
-      <div class="container">
-        <h2 class="section-title">私たちのこだわり</h2>
-        <div class="vision-content">
-          <p>
-            足立餃子房は、地元足立区の豊かな食材を活かし、一つ一つ丁寧に手作りする餃子専門店です。
-          </p>
-          <p>
-            地域に根ざした食材選びから、熟練の技術まで、美味しい餃子への情熱を注ぎ込んでいます。
-          </p>
-          <p>
-            観光で訪れる方々にも、地元で愛される方々にも、心から満足していただける餃子をお届けします。
-          </p>
         </div>
       </div>
     </section>
@@ -578,62 +631,85 @@
     <!-- Footer -->
     <footer class="footer">
       <div class="footer-content">
-        <div class="footer-info">
-          <div class="footer-section">
-            <h4>足立餃子房</h4>
-            <p>地元食材にこだわる餃子専門店</p>
-          </div>
-          <div class="footer-section">
-            <h4>営業時間</h4>
-            <p>平日 10:00-19:00<br />土日祝 定休日</p>
-          </div>
-          <div class="footer-section">
-            <h4>オープン予定</h4>
-            <p>2025年4月</p>
-          </div>
+        <div class="footer-logo">足立餃子房</div>
+        <p>東京・足立の恵みを包んだ、本格手作り餃子</p>
+        <div class="social-links">
+          <a href="#" aria-label="X (formerly Twitter)">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+              />
+            </svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.07 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z"
+              />
+            </svg>
+          </a>
         </div>
-        <p>&copy; 2025 足立餃子房. All rights reserved.</p>
+        <p class="copyright">© 2025 足立餃子房. All Rights Reserved.</p>
       </div>
     </footer>
-
     <script>
-      // スムーズスクロール
+      // (scriptタグの中身は変更なし)
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
           e.preventDefault();
-          const target = document.querySelector(this.getAttribute("href"));
-          if (target) {
-            target.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
+          const t = this.getAttribute("href"),
+            o = document.querySelector(t);
+          if (o) {
+            const n = document.querySelector(".nav-links.active");
+            n
+              ? (hamburger.click(),
+                setTimeout(() => {
+                  o.scrollIntoView({ behavior: "smooth", block: "start" });
+                }, 300))
+              : o.scrollIntoView({ behavior: "smooth", block: "start" });
           }
         });
       });
-
-      // スクロールアニメーション
+      const hamburger = document.querySelector(".hamburger"),
+        navLinks = document.querySelector(".nav-links");
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active"),
+          navLinks.classList.toggle("active");
+      });
       const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0)";
-          }
-        });
-      }, observerOptions);
-
-      // アニメーション対象要素を監視
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        },
+        observer = new IntersectionObserver((e, t) => {
+          e.forEach((e) => {
+            e.isIntersecting &&
+              ((e.target.style.opacity = "1"),
+              (e.target.style.transform = "translateY(0)"),
+              t.unobserve(e.target));
+          });
+        }, observerOptions);
       document
-        .querySelectorAll(".prep-card, .menu-item, .info-item")
-        .forEach((el) => {
-          el.style.opacity = "0";
-          el.style.transform = "translateY(20px)";
-          el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-          observer.observe(el);
+        .querySelectorAll(
+          ".prep-card, .menu-item, .info-item, .vision-content p"
+        )
+        .forEach((e) => {
+          (e.style.opacity = "0"),
+            (e.style.transform = "translateY(30px)"),
+            (e.style.transition =
+              "opacity 0.6s ease-out, transform 0.6s ease-out"),
+            observer.observe(e);
         });
     </script>
   </body>

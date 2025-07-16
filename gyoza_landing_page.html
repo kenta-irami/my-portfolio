@@ -27,16 +27,20 @@
         box-sizing: border-box;
       }
       body {
-        font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo,
-          sans-serif;
-
+        font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN",
+          "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
         line-height: 1.8;
         color: var(--text-color);
         background-color: #fff;
         overflow-x: hidden;
-        overflow-wrap: break-word; /* ← はみ出し防止のため、こちらを追加 */
-        word-break: normal; /* ← 標準的な設定に戻す */
-        line-break: strict;
+        /* 日本語の自然な改行を実現 */
+        word-break: keep-all; /* 日本語の単語を保持 */
+        overflow-wrap: anywhere; /* 必要に応じて改行 */
+        line-break: auto; /* ブラウザの自動判定を使用 */
+        /* フォントレンダリングの改善 */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-feature-settings: "palt" 1; /* 日本語の文字詰め */
       }
       h1,
       h2,
@@ -44,9 +48,17 @@
       h4 {
         font-family: "Shippori Mincho", serif;
         text-wrap: balance;
+        /* 日本語の自然な改行を実現 */
+        word-break: keep-all; /* 日本語の単語を保持 */
+        overflow-wrap: anywhere; /* 必要に応じて改行 */
+        line-break: auto; /* ブラウザの自動判定を使用 */
       }
       p {
-        /*text-wrap: pretty;*/
+        text-wrap: pretty;
+        /* 日本語の自然な改行を実現 */
+        word-break: keep-all; /* 日本語の単語を保持 */
+        overflow-wrap: anywhere; /* 必要に応じて改行 */
+        line-break: auto; /* ブラウザの自動判定を使用 */
       }
       .header {
         background: white;

@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex,nofollow" />
-    <title>【公式】足立餃子房 - 肉汁したたる、本格手包み餃子専門店</title>
+    <title>足立餃子房 - 肉汁したたる、本格手包み餃子専門店</title>
     <!-- (headタグの中身は変更なし) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=Shippori+Mincho:wght@700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Shippori+Mincho:wght@700&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -27,13 +27,16 @@
         box-sizing: border-box;
       }
       body {
-        font-family: "M PLUS Rounded 1c", "Hiragino Kaku Gothic ProN", Meiryo,
+        font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo,
           sans-serif;
+
         line-height: 1.8;
         color: var(--text-color);
         background-color: #fff;
         overflow-x: hidden;
-        word-break: auto-phrase;
+        overflow-wrap: break-word; /* ← はみ出し防止のため、こちらを追加 */
+        word-break: normal; /* ← 標準的な設定に戻す */
+        line-break: strict;
       }
       h1,
       h2,
@@ -43,7 +46,7 @@
         text-wrap: balance;
       }
       p {
-        text-wrap: pretty;
+        /*text-wrap: pretty;*/
       }
       .header {
         background: white;
@@ -445,6 +448,70 @@
           background-attachment: scroll;
         }
       }
+
+      /* LINE CTA Section */
+      .line-cta-section {
+        background: #06c755; /* LINEグリーン */
+        color: white;
+        padding: 5rem 0;
+        text-align: center;
+      }
+      .line-cta-content h2 {
+        font-size: clamp(2rem, 6vw, 2.8rem);
+        margin-bottom: 1.5rem;
+        color: white;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+      }
+      .line-cta-content p {
+        font-size: 1.1rem;
+        max-width: 650px;
+        margin: 0 auto 2.5rem;
+        line-height: 1.9;
+      }
+      .line-icon-img {
+        width: 60px;
+        height: auto;
+        margin-bottom: 1rem;
+      }
+      .line-cta-button {
+        background: white;
+        color: #06c755;
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.2rem;
+        transition: all 0.3s;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.7rem;
+      }
+      .line-cta-button:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      }
+      .qr-wrapper {
+        margin-top: 2rem;
+      }
+      .qr-code-img {
+        width: 150px;
+        height: 150px;
+        background: white;
+        padding: 10px;
+        border-radius: 10px;
+      }
+      .qr-wrapper p {
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+        opacity: 0.9;
+      }
+
+      .line-brand-icon {
+        width: 24px;
+        height: auto;
+      }
+
       @media (max-width: 480px) {
         .hero {
           padding: 5rem 0;
@@ -493,10 +560,9 @@
       <div class="hero-content">
         <h1>肉汁、したたる。皮は、もっちり。</h1>
         <p class="hero-subtitle">東京・足立の恵みを包んだ、本格手作り餃子</p>
-        <div class="opening-banner">
-          <strong>🎉 2025年4月 グランドオープン予定！</strong>
-        </div>
-        <a href="#menu" class="cta-button">お品書きを見る</a>
+        <a href="#line-friend" class="cta-button"
+          >🥟 LINE友だち登録でクーポンGET！</a
+        >
       </div>
     </section>
 
@@ -599,6 +665,42 @@
       </div>
     </section>
 
+    <!-- LINE CTA Section -->
+    <section class="line-cta-section" id="line-friend">
+      <div class="container">
+        <div class="line-cta-content">
+          <img src="images/line-icon.png" alt="LINE" class="line-icon-img" />
+          <h2>LINE友だち追加で、<br />焼き餃子クーポンをもらおう！</h2>
+          <p>
+            今、LINEで友だち追加していただくと、<strong
+              >その場で使える<br />【名物 焼き餃子5個サービス】</strong
+            >クーポンをプレゼント！<br />
+            今後もLINE限定のお得な情報や、新メニューのお知らせを配信します。
+          </p>
+          <a
+            href="https://lin.ee/6vQ5nBP"
+            class="line-cta-button"
+            target="_blank"
+          >
+            <img
+              src="images/line-brand-icon.png"
+              alt="LINEロゴ"
+              class="line-brand-icon"
+            />
+            今すぐ友だち追加する
+          </a>
+          <div class="qr-wrapper">
+            <img
+              src="images/qr-code.png"
+              alt="LINE友だち追加QRコード"
+              class="qr-code-img"
+            />
+            <p>↑スマホでQRコードを読み取ってもOK！</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Info Section -->
     <section class="info" id="info">
       <div class="container">
@@ -607,12 +709,12 @@
           <div class="info-item">
             <div class="info-item-icon">📍</div>
             <h3>所在地</h3>
-            <p>東京都足立区千住XXXX<br />（詳細はオープン前に公開）</p>
+            <p>東京都足立区千住XXXX</p>
           </div>
           <div class="info-item">
             <div class="info-item-icon">⏰</div>
             <h3>営業時間</h3>
-            <p>平日: 11:30〜21:00<br />土日祝: 定休日</p>
+            <p>11:30〜21:00<br />月曜日: 定休日</p>
           </div>
           <div class="info-item">
             <div class="info-item-icon">🚇</div>
@@ -622,7 +724,7 @@
           <div class="info-item">
             <div class="info-item-icon">📢</div>
             <h3>最新情報</h3>
-            <p>オープンまでの進捗は<br />公式SNSで発信中！</p>
+            <p>お得な情報は<br />公式LINEやSNSで発信中！</p>
           </div>
         </div>
       </div>
@@ -633,7 +735,15 @@
       <div class="footer-content">
         <div class="footer-logo">足立餃子房</div>
         <p>東京・足立の恵みを包んだ、本格手作り餃子</p>
+
         <div class="social-links">
+          <a href="https://lin.ee/6vQ5nBP" aria-label="LINE" target="_blank">
+            <img
+              src="images/line-brand-icon.png"
+              alt="LINEロゴ"
+              class="line-brand-icon"
+            />
+          </a>
           <a href="#" aria-label="X (formerly Twitter)">
             <svg
               xmlns="http://www.w3.org/2000/svg"

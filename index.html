@@ -14,7 +14,12 @@
     <link rel="stylesheet" href="css/custom.css" />
   </head>
 
-  <body>
+  <body
+    id="home"
+    data-bs-spy="scroll"
+    data-bs-target="#header-nav"
+    data-bs-offset="70"
+  >
     <!-- ===== ヘッダー ===== -->
     <header class="header">
       <div class="container d-flex flex-wrap justify-content-center">
@@ -26,9 +31,9 @@
           <span class="fs-4">My Portfolio</span>
         </a>
         <!-- ナビゲーションメニュー -->
-        <ul class="nav nav-pills">
+        <ul class="nav nav-pills" id="header-nav">
           <li class="nav-item">
-            <a href="#" class="nav-link active" aria-current="page">Home</a>
+            <a href="#home" class="nav-link">Home</a>
           </li>
           <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
           <li class="nav-item">

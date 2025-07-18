@@ -73,3 +73,11 @@ section .section-title {
   object-fit: cover; /* コンテナに合わせて画像を拡大縮小し、はみ出た部分を切り取る */
   object-position: top; /* 画像の上部を優先して表示する */
 }
+
+/* ===================================================
+   ヘッダーナビゲーションの青枠（active表示）を無効化
+====================================================== */
+.header .nav-pills .nav-link.active {
+  background-color: transparent; /* 背景色を透明にする */
+  color: #0d6efd; /* 文字色を通常時のリンク色（青）に戻す */
+}

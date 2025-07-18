@@ -26,6 +26,7 @@
         padding: 0;
         box-sizing: border-box;
       }
+      /* styleタグの中のCSSを修正 */
       body {
         font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN",
           "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
@@ -35,8 +36,8 @@
         overflow-x: hidden;
         /* 日本語の自然な改行を実現 */
         word-break: keep-all; /* 日本語の単語を保持 */
-        overflow-wrap: anywhere; /* 必要に応じて改行 */
-        line-break: auto; /* ブラウザの自動判定を使用 */
+        overflow-wrap: break-word; /* 意味のある単位で改行（推奨）*/
+        line-break: strict; /* ← ここを "strict" に変更 */
         /* フォントレンダリングの改善 */
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -50,15 +51,15 @@
         text-wrap: balance;
         /* 日本語の自然な改行を実現 */
         word-break: keep-all; /* 日本語の単語を保持 */
-        overflow-wrap: anywhere; /* 必要に応じて改行 */
-        line-break: auto; /* ブラウザの自動判定を使用 */
+        overflow-wrap: break-word;
+        line-break: strict;
       }
       p {
         text-wrap: pretty;
         /* 日本語の自然な改行を実現 */
         word-break: keep-all; /* 日本語の単語を保持 */
-        overflow-wrap: anywhere; /* 必要に応じて改行 */
-        line-break: auto; /* ブラウザの自動判定を使用 */
+        overflow-wrap: break-word;
+        line-break: strict;
       }
       .header {
         background: white;
@@ -570,7 +571,7 @@
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
-        <h1>肉汁、したたる。<br />皮は、もっちり。</h1>
+        <h1>肉汁、したたる。皮は、もっちり。</h1>
         <p class="hero-subtitle">東京・足立の恵みを包んだ、本格手作り餃子</p>
         <a href="#line-friend" class="cta-button"
           >🥟 LINE友だち登録でクーポンGET！</a

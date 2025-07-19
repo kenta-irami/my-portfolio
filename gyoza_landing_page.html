@@ -35,9 +35,9 @@
         background-color: #fff;
         overflow-x: hidden;
         /* 日本語の自然な改行を実現 */
-        word-break: keep-all; /* 日本語の単語を保持 */
-        overflow-wrap: break-word; /* 意味のある単位で改行（推奨）*/
-        line-break: strict; /* ← ここを "strict" に変更 */
+        word-break: normal; /* iPhone SEでの表示を改善 */
+        overflow-wrap: anywhere; /* より柔軟な改行を許可 */
+        line-break: auto; /* ブラウザに自動判定させる */
         /* フォントレンダリングの改善 */
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;

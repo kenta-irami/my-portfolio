@@ -34,31 +34,29 @@
         color: var(--text-color);
         background-color: #fff;
         overflow-x: hidden;
-        /* 日本語の自然な改行を実現 */
-        word-break: normal; /* iPhone SEでの表示を改善 */
-        overflow-wrap: anywhere; /* より柔軟な改行を許可 */
-        line-break: auto; /* ブラウザに自動判定させる */
-        /* フォントレンダリングの改善 */
+        /* 日本語の改行設定をシンプルに */
+        word-break: normal;
+        overflow-wrap: break-word;
+        line-break: auto;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        font-feature-settings: "palt" 1; /* 日本語の文字詰め */
+        font-feature-settings: "palt" 1;
       }
       h1,
       h2,
       h3,
       h4 {
         font-family: "Shippori Mincho", serif;
-
-        word-break: keep-all; /* 日本語の単語を保持 */
+        /* 改行関連のプロパティをシンプルに */
         overflow-wrap: break-word;
-        line-break: strict;
+        line-break: auto;
       }
       p {
+        /* text-wrap: pretty; は残す */
         text-wrap: pretty;
-        /* 日本語の自然な改行を実現 */
-        word-break: keep-all; /* 日本語の単語を保持 */
+        /* 改行関連のプロパティをシンプルに */
         overflow-wrap: break-word;
-        line-break: strict;
+        line-break: auto;
       }
       .header {
         background: white;
